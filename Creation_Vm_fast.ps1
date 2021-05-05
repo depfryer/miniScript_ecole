@@ -113,6 +113,6 @@ if($flag)
     Write-Host  -ForegroundColor Green 'Creation Machine'
     $a = New-VM -VHDPath $DEF_PATH\$Groupe.$Nom.vhdx -Generation 2 -Name $Nom -MemoryStartupBytes $memStart -SwitchName Interne
 
-    Set-VMProcessor -VMName $Nom -Count $CPU_SRV
+    Set-VMProcessor -VMName $Nom -Count $cpu
     Add-VMGroupMember -Name $Groupe -VM $a
 }
