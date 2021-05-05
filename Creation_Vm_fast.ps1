@@ -62,14 +62,14 @@ $flag = $false
  
 If($choix -eq "1") 
 {
-    $p = '$DEF_PATH\Source\Source.Windows.SRV.vhdx'
+    $smallPath = '$DEF_PATH\Source\Source.Windows.SRV.vhdx'
     $cpu = $CPU_SRV
     $memStart = '3GB'
     $flag = $true
 }
 elseif ($choix -eq "2") 
 {
-    $p = '$DEF_PATH\Source\Source.Windows10.Pro.vhdx'
+    $smallPath = '$DEF_PATH\Source\Source.Windows10.Pro.vhdx'
     $cpu = $CPU_CLI
     $memStart = '1GB'
 
@@ -108,7 +108,7 @@ Get-VMGroup -Name ecole | ForEach-Object VMMembers
 if($flag)
 {
     Write-Host  -ForegroundColor Green 'Creation Disque Dur'
-    New-VHD -ParentPath $DEF_PATH\Source\Source.Windows.SRV.vhdx -Path $DEF_PATH\$Groupe.$Nom.vhdx -Differencing
+    New-VHD -ParentPath $smallPath -Path $DEF_PATH\$Groupe.$Nom.vhdx -Differencing
 
     Write-Host  -ForegroundColor Green 'Creation Machine'
     $a = New-VM -VHDPath $DEF_PATH\$Groupe.$Nom.vhdx -Generation 2 -Name $Nom -MemoryStartupBytes $memStart -SwitchName Interne
