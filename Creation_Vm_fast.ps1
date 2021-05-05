@@ -48,7 +48,7 @@ $choix = Read-Host -Prompt 'Choix'
 }
 
 if ($Nom_Ordinateur -eq $null -and $choix -ne 'nettoyage') {
-$Nom = Read-Host -Prompt 'Nom de l`ordinateur'
+$Nom = Read-Host -Prompt 'Nom de lordinateur'
 
 }
 
@@ -62,16 +62,16 @@ $flag = $false
  
 If($choix -eq "1") 
 {
-    $smallPath = '$DEF_PATH\Source\Source.Windows.SRV.vhdx'
+    $smallPath = $DEF_PATH + '\Source\Source.Windows.SRV.vhdx'
     $cpu = $CPU_SRV
-    $memStart = '3GB'
+    $memStart = 3GB
     $flag = $true
 }
 elseif ($choix -eq "2") 
 {
-    $smallPath = '$DEF_PATH\Source\Source.Windows10.Pro.vhdx'
+    $smallPath = $DEF_PATH + '\Source\Source.Windows10.Pro.vhdx'
     $cpu = $CPU_CLI
-    $memStart = '1GB'
+    $memStart = 1GB
 
     $flag = $true
 
